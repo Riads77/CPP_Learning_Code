@@ -1,13 +1,10 @@
 #include <iostream>
 
-int main()
-{
+int main() {
     int array[] = { 0, 1, 2, 3 };
 
-    for (int i = 0; i < 4; ++i)
-    {
-        std::cout << array[i] << std::endl;
-    }
+    for (int value : array)
+    { std::cout << value << std::endl; }
 
     return 0;
 }
