@@ -1,6 +1,8 @@
 #include <iostream>
+#include <vector>
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
     if (argc < 2)
     {
         std::cerr << "Must have at least one argument." << std::endl;
@@ -16,13 +18,17 @@ int main(int argc, char** argv) {
 
     std::cout << length << std::endl;
 
-    // int array[50] = {};
+    std::vector<int> array;
 
-    // for (int i = 0; i < 50; ++i)
-    // { array[i] = i + 1; }
+    for (int i = 0; i < length; ++i)
+    {
+        array.emplace_back(i + 1);
+    }
 
-    // for (int value : array)
-    // { std::cout << value << std::endl; }
+    for (int value : array)
+    {
+        std::cout << value << std::endl;
+    }
 
     return 0;
 }

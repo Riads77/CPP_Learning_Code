@@ -1,5 +1,6 @@
 #include <iostream>
-int main() {
+int main()
+{
     using namespace std;
     string word;
     for (int i = 0; i < 10; i++)
