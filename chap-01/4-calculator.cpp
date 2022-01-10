@@ -37,36 +37,49 @@ int compute_result(char op, std::vector<int> values)
     return result;
 }
 
-int main(int argc, char** argv)
+bool parse_params(char op, std::vector<int> values, int arg, char** argv)
 {
-    if (argc < 2)
+    if (arg < 2)
     {
         std::cerr << "Expected operator as first argument." << std::endl;
-        return -1;
+        return false;
     }
 
-    std::string op = argv[1];
+    std::string op_str = argv[1];
 
-    if (op != "+" && op != "*" && op != "-")
+    if (op_str != "+" && op_str != "*" && op_str != "-")
     {
         std::cerr << "Expected operator to be '+', '*' or '-'." << std::endl;
-        return -1;
+        return false;
     }
 
-    std::vector<int> values;
-    for (auto arg_i = 2; arg_i < argc; ++arg_i)
+    op = op_str[0];
+
+    for (auto arg_i = 2; arg_i < arg; ++arg_i)
     {
         auto value = std::stoi(argv[arg_i]);
         values.emplace_back(value);
     }
 
-    if (op == "-" && values.empty())
+    if (op == '-' && values.empty())
     {
-        std::cerr << "Operator '-' expects at least one operand to substract from." << std::endl;
+        std::cerr << "Operator '-' expects at least one _op_strerand to substract from." << std::endl;
+        return false;
+    }
+    return true;
+}
+
+int main(int argc, char** argv)
+{
+    char             op = '?';
+    std::vector<int> values;
+
+    if (!parse_params(op, values, argc, argv))
+    {
         return -1;
     }
 
-    auto result = compute_result(op[0], values);
+    auto result = compute_result(op, values);
 
     display_result(result);
 
