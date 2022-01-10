@@ -7,7 +7,7 @@ void display_result(int result)
     std::cout << "Result is " << result << std::endl;
 }
 
-int compute_result(char op, std::vector<int> values)
+int compute_result(char& op, std::vector<int>& values)
 {
     auto result = 0;
 
