@@ -2,9 +2,42 @@
 #include <string>
 #include <vector>
 
+void display_result(int result)
+{
+    std::cout << "Result is " << result << std::endl;
+}
+
+int compute_result(char op, std::vector<int> values)
+{
+    auto result = 0;
+
+    if (op == '+')
+    {
+        for (auto v : values)
+        {
+            result += v;
+        }
+    }
+    else if (op == '*')
+    {
+        result = 1;
+        for (auto v : values)
+        {
+            result *= v;
+        }
+    }
+    else if (op == '-')
+    {
+        result = values[0];
+        for (auto i = 1u; i < values.size(); ++i)
+        {
+            result -= values[i];
+        }
+    }
+}
+
 int main(int argc, char** argv)
 {
-    // Parsing program parameters.
     if (argc < 2)
     {
         std::cerr << "Expected operator as first argument." << std::endl;
@@ -26,41 +59,15 @@ int main(int argc, char** argv)
         values.emplace_back(value);
     }
 
-    // Process operation, depending on the operator.
-    auto result = 0;
-
-    if (op == "+")
+    if (op == "-" && values.empty())
     {
-        for (auto v : values)
-        {
-            result += v;
-        }
-    }
-    else if (op == "*")
-    {
-        result = 1;
-        for (auto v : values)
-        {
-            result *= v;
-        }
-    }
-    else if (op == "-")
-    {
-        if (values.empty())
-        {
-            std::cerr << "Operator '-' expects at least one operand to substract from." << std::endl;
-            return -1;
-        }
-
-        result = values[0];
-        for (auto i = 1u; i < values.size(); ++i)
-        {
-            result -= values[i];
-        }
+        std::cerr << "Operator '-' expects at least one operand to substract from." << std::endl;
+        return -1;
     }
 
-    // Output result.
-    std::cout << "Result is " << result << std::endl;
+    auto result = compute_result(op[0], values);
+
+    display_result(result);
 
     return 0;
 }
