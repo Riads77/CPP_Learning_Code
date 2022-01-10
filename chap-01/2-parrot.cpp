@@ -1,10 +1,11 @@
 #include <iostream>
 int main() {
-    std::string word;
+    using namespace std;
+    string word;
     for (int i = 0; i < 10; i++)
     {
-        std::cin >> word;
-        std::cout << word << std::endl;
+        cin >> word;
+        cout << word << endl;
     }
     return 0;
 }
