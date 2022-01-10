@@ -1,10 +1,10 @@
 #include <iostream>
 int main() {
-    int number = 0;
+    std::string word;
     for (int i = 0; i < 10; i++)
     {
-        std::cin >> number;
-        std::cout << number << std::endl;
+        std::cin >> word;
+        std::cout << word << std::endl;
     }
     return 0;
 }
