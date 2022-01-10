@@ -7,34 +7,49 @@ void display_result(int result)
     std::cout << "Result is " << result << std::endl;
 }
 
-int compute_result(char& op, std::vector<int>& values)
+int add(const std::vector<int>& values)
 {
     auto result = 0;
-
-    if (op == '+')
+    for (auto v : values)
     {
-        for (auto v : values)
-        {
-            result += v;
-        }
-    }
-    else if (op == '*')
-    {
-        result = 1;
-        for (auto v : values)
-        {
-            result *= v;
-        }
-    }
-    else if (op == '-')
-    {
-        result = values[0];
-        for (auto i = 1u; i < values.size(); ++i)
-        {
-            result -= values[i];
-        }
+        result += v;
     }
     return result;
+}
+
+int multiply(const std::vector<int>& values)
+{
+    auto result = 1;
+    for (auto v : values)
+    {
+        result *= v;
+    }
+    return result;
+}
+
+int sub(const std::vector<int>& values)
+{
+    auto result = values[0];
+    for (auto i = 1u; i < values.size(); ++i)
+    {
+        result -= values[i];
+    }
+    return result;
+}
+
+int compute_result(char& op, const std::vector<int>& values)
+{
+    switch (op)
+    {
+    case '+':
+        return add(values);
+    case '*':
+        return multiply(values);
+    case '-':
+        return sub(values);
+    default:
+        return 0;
+    }
 }
 
 bool parse_params(char op, std::vector<int> values, int arg, char** argv)
