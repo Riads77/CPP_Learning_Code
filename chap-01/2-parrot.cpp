@@ -1,12 +1,10 @@
 #include <iostream>
 int main() {
     int number = 0;
-    while (true)
+    do
     {
         std::cin >> number;
         std::cout << number << std::endl;
-        if (number == -1)
-        { break; }
-    }
+    } while (number != -1);
     return 0;
 }
