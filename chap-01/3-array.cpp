@@ -7,7 +7,14 @@ int main(int argc, char** argv) {
         return -1;
     }
 
-    std::cout << argv[1] << std::endl;
+    int length = std::stoi(argv[1]);
+    if (length <= 0)
+    {
+        std::cerr << "Expected strictly positive value for array size." << std::endl;
+        return -1;
+    }
+
+    std::cout << length << std::endl;
 
     // int array[50] = {};
 
