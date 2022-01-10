@@ -34,6 +34,7 @@ int compute_result(char op, std::vector<int> values)
             result -= values[i];
         }
     }
+    return result;
 }
 
 int main(int argc, char** argv)
