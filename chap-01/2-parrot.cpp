@@ -1,10 +1,10 @@
 #include <iostream>
 int main() {
     int number = 0;
-    do
+    for (int i = 0; i < 10; i++)
     {
         std::cin >> number;
         std::cout << number << std::endl;
-    } while (number != -1);
+    }
     return 0;
 }
