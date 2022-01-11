@@ -103,6 +103,14 @@ int main() {
 Quelles sont les différences entre ces différentes méthodes de passage ?
 Dans quels contextes est-il préférable de passer par valeur ? Par référence ? Et par référence constante ?
 
+- On préférera passer par valeur lorsque l'on veut utiliser les valeurs sans modifier directement les addresses des variables concernées. On sera davantage interessé par la valeur elle même et non pas par la variable qui la stocke. add utilise simplement les valeurs de a et b et renvoie la somme dans un autre pan de la mémoire. C'est du passage par copies.
+
+- On préférera passer par références si on veut modifier plusieurs valeurs dans la fonction. L'idée est de modifir la référence directement si on le désire. L'avantage est que l'on peut modifier autant de valeurs que l'on vet sans avoir à retourner quoi que ce soit obligatoirement. add_to va ici prendre la référence de a et modifier directement la valeur de a en lui ajoutant la valeur de b. Ici, on modifie directement la valeur contenue dans la référence a.
+
+- On préférera passer par références constantes si on n'a pas l'intention de changer le paramètre mais que l'on ne veut pas pour autant copier l'argument en question (par exemple un tableau). Ici, ce n'est pas ce que nous avons fait.
+
+
+
 3. Modifiez les signatures des fonctions suivantes de manière à ce que le passage de paramètres soit le plus efficace et sécurisé possible.
 Vous pouvez vous aidez des commentaires pour comprendre comment les fonctions utilisent leurs paramètres.
 ```cpp
