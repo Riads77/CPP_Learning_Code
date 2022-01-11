@@ -24,10 +24,16 @@ En C++, il existe plein de syntaxes différentes pour initialiser une variable d
 
 ```cpp
 int v;       // pas d'initialisation            -> valeur indéfinie
+- Warning mais pas d'erreur de compilation. Valeur indéfinie. Avec -Werror, celà devient une erreur de compilation.
 int v = 2;   // initialisation avec '= value'   -> value
+- Si on utilise la variable, celà ne propose aucune erreur.
 int v {};    // initialisation avec '{}'        -> tous les bits à 0
+- Si on utilise la variable, celà ne propose aucune erreur.
 int v { 2 }; // initialisation avec '{ value }' -> value
+- Si on utilise la variable, celà ne propose aucune erreur.
 int v(2);    // initialisation avec '(value)'   -> value
+- Si on utilise la variable, celà ne propose aucune erreur.
+
 ```
 
 1. Parmi les lignes suivantes, lesquelles déclenchent des erreurs de compilation ? Quelles sont ces erreurs et comment les corriger ?\
