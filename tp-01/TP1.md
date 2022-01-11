@@ -24,15 +24,11 @@ En C++, il existe plein de syntaxes différentes pour initialiser une variable d
 
 ```cpp
 int v;       // pas d'initialisation            -> valeur indéfinie
-- Warning mais pas d'erreur de compilation. Valeur indéfinie. Avec -Werror, celà devient une erreur de compilation.
 int v = 2;   // initialisation avec '= value'   -> value
-- Si on utilise la variable, celà ne propose aucune erreur.
 int v {};    // initialisation avec '{}'        -> tous les bits à 0
-- Si on utilise la variable, celà ne propose aucune erreur.
+int v {};    // initialisation avec '{}'        -> tous les bits à 0
 int v { 2 }; // initialisation avec '{ value }' -> value
-- Si on utilise la variable, celà ne propose aucune erreur.
 int v(2);    // initialisation avec '(value)'   -> value
-- Si on utilise la variable, celà ne propose aucune erreur.
 
 ```
 
@@ -42,33 +38,35 @@ Vous pouvez utiliser [CompilerExplorer](https://www.godbolt.org/z/rPPoro) pour t
 
 ```cpp
 short       s0;
-const short s1;
+const short s1; // s1 initialisé avec une valeur indéfinie en tant que variable constante. 
 
 const int i1 = 2;
 
 bool b2{false};
-bool b3{i1};
+bool b3{i1}; // b3 initialisé avec la valeur d'un booléen de valeur 2. Conversion int -> bool 32 bits -> 1 bits.
 bool b4;
 
 unsigned       u5{0x10};
 unsigned short us6 = -10;
 unsigned long  ul7{b3 + u5 + us6};
 
-char c8{"a"};
+char c8{"a"}; // On tente de convertir un string en char 64 bits -> 8 bits.
 char c9 = -10;
 
 double       d10{i1};
 double&      d11{d10};
-double&      d12;
+double&      d12; // On ne peut pas créer de références sur une valeur non initialisée.
 const double d13{.0f};
 
 int        i14 = i1;
-int&       i15 = i1;
-int&       i16 = b2;
+int&       i15 = i1; // On ne peut pas faire de référence sur une variable constante.
+int&       i16 = b2; // On ne peut pas faire de références d'entier non constant valeur gacuhe sur un entier valeur droite.
 const int& i17{i14};
 ```
 
 2. Pouvez-vous donner la valeur de `s0` ? De `ul7` ?
+
+s0 est indéfini. ul7 également car il contient b3 qui lui-même est indéfini.
 
 
 ## Exercice 3 - Les fonctions et leurs paramètres
@@ -78,15 +76,15 @@ const int& i17{i14};
 ```cpp
 #include <iostream>
 
-XX add(XX a, XX b) {
+int add(const int a, const int b) {
   return a + b;
 }
 
-XX add_to(XX a, XX b) {
+void add_to(int& a, int b) {
   a += b;
 }
 
-XX another_add_to(XX a, XX b) {
+void another_add_to(int* a, int b) {
   *a += b;
 }
 
