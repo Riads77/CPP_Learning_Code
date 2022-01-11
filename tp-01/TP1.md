@@ -4,9 +4,19 @@
 ## Exercice 1 - Compilation et exécution
 
 1. Quels sont les avantages et désavantages d'un langage dit "*compilé*" (C, C++, Pascal) ou "*semi-compilé*" (Java) comparé à un langage dit "*interpreté*" (Python, PHP, Javascript, etc) ?
+
+- Un langage dit "compilé" ou semi-compilé" sera plus rapide et facile à exécuter qu'un langage interprété.
+- La gestion de la mémoire est plus précise (utilisation de pointeurs/références).
+- Il sera en revanche non portable et devra être recompilé pour chaque machine, ou si les dépendances changent. 
+
 2. Quelle est la différence entre une erreur de compilation et une erreur d'exécution ? (à quel moment se produisent-elles ? dans quelles circonstances ? comment les identifier ? comment les corriger ? ...)
+
+- Une erreur de compilation se produit lorsqu'on tente de compiler le code. Celà signifie qu'il y a une erreur lexicale, syntaxique ou sémantique entre autre qui rend le code non traduisible en exécutable. En général, elles sont plus simples à corriger car le compilateur détecte où se trouve le problème. On peut les attraper avec un static_assert(false).
+- Une erreur d'exécution se produit lorsqu'on exécute le programme (en appelant son exécutable). Le code fonctionne, mais ne produit pas ce que l'on veut. Cela peut être dû à un problème de mémoire, une exception (par exemple une division par 0 etc). On peut les attraper avec un assert(false).
+
 3. Que signifie en pratique l'expression "*undefined behavior*" (UB) ? Peut-on compiler un programme contenant du code classifié UB par le standard ? Si oui, que peut-il se produire au moment de son exécution ?
 
+Littéralement "comportement indéfini", s'obtient quand on tente d'allouer à une variable une valeur non fixée par le standard. Celà ne produit pas d'erreur mais une valeur absurde à la place. Celà généralise également les erreurs de compilation ou d'exécution, mais on en parle en général pour définir ces valeurs absurdes.
 
 ## Exercice 2 - Primitives et initialisation
 
