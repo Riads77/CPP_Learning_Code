@@ -24,17 +24,21 @@ private:
     unsigned int _age = 0u;
 };
 
+std::ostream& operator<<(std::ostream& stream, const Person& person)
+{
+    return stream << "Person named '" << person.get_full_name() << "' is " << person.get_age()
+                  << " years old.";
+}
+
 int main()
 {
     Person batman { "Bruce", "Wayne" };
     batman.wait(23);
 
-    std::cout << "Person named '" << batman.get_full_name() << "' is " << batman.get_age() << " years old."
-              << std::endl;
+    std::cout << batman << std::endl;
 
-    Person copy = batman;
-    std::cout << "Person named '" << copy.get_full_name() << "' is " << copy.get_age() << " years old."
-              << std::endl;
+    Person clone = batman;
+    std::cout << clone << std::endl;
 
     return 0;
 }
