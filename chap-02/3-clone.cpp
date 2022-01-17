@@ -13,6 +13,17 @@ public:
         , _surname { other._surname }
     {}
 
+    Person& operator=(const Person& other)
+    {
+        if (this != &other)
+        {
+            _name    = other._name;
+            _surname = other._surname;
+        }
+
+        return *this;
+    }
+
     std::string  get_full_name() const { return _name + " " + _surname; }
     unsigned int get_age() const { return _age; }
 
@@ -39,6 +50,12 @@ int main()
 
     Person clone = batman;
     std::cout << clone << std::endl;
+
+    Person assigned_clone { "Batman", "2" };
+    std::cout << assigned_clone << std::endl;
+
+    assigned_clone = batman;
+    std::cout << assigned_clone << std::endl;
 
     return 0;
 }
