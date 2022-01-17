@@ -8,6 +8,10 @@ public:
         : _name { name }
         , _surname { surname }
     {}
+    Person(const Person& other)
+        : _name { other._name }
+        , _surname { other._surname }
+    {}
 
     std::string  get_full_name() const { return _name + " " + _surname; }
     unsigned int get_age() const { return _age; }
@@ -26,6 +30,10 @@ int main()
     batman.wait(23);
 
     std::cout << "Person named '" << batman.get_full_name() << "' is " << batman.get_age() << " years old."
+              << std::endl;
+
+    Person copy = batman;
+    std::cout << "Person named '" << copy.get_full_name() << "' is " << copy.get_age() << " years old."
               << std::endl;
 
     return 0;
