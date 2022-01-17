@@ -10,5 +10,8 @@ int main()
     rect.scale(3);
     std::cout << "{ L: " << rect.get_length() << ", W: " << rect.get_width() << " }" << std::endl;
 
+    Rectangle square(2.5f);
+    std::cout << "{ L: " << square.get_length() << ", W: " << square.get_width() << " }" << std::endl;
+
     return 0;
 }
