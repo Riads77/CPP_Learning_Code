@@ -7,8 +7,7 @@ Rectangle::Rectangle(float length, float width)
 {}
 
 Rectangle::Rectangle(float size)
-    : _length { size }
-    , _width { size }
+    : Rectangle { size, size }
 {}
 
 void Rectangle::scale(float ratio)
