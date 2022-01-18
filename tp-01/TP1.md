@@ -139,7 +139,7 @@ std::string concatenate(const char* str1, const char* str2);
 
 ## Exercice 4 - `std::string` et `std::vector`
 
-1. Ecrivez un programme qui utilise `std::cin` pour lire une variable de type `std::string`, puis calcule et affiche pour chaque lettre miniscule ('a', 'b', ..., 'z') le nombre des fois où elle apparaît.\
+1. Ecrivez un programme qui utilise `std::cin` pour lire une variable de type `std::string`, puis calcule et affiche pour chaque lettre minuscule ('a', 'b', ..., 'z') le nombre des fois où elle apparaît.\
 Le comptage des lettres se fera dans une fonction `count_lower` prenant une chaîne de caractères en paramètre et renvoyant un `std::vector<unsigned int>`. La première case du tableau contiendra le nombre d'occurences de 'a', la seconde de 'b', etc.\
 Vous afficherez ce tableau dans une seconde fonction `display_lower_occ`.\
 Essayez d'utiliser les signatures qui rendront votre programme le plus efficace possible.
