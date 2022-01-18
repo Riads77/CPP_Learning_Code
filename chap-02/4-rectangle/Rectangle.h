@@ -1,10 +1,10 @@
 #pragma once
 
+#include <ostream>
+
 class Rectangle
 {
 public:
-    static float _default_size;
-
     Rectangle(float length, float width);
     Rectangle(float size);
     Rectangle();
@@ -14,7 +14,12 @@ public:
 
     void scale(float ratio);
 
+    static void set_default_size(float default_size);
+
 private:
-    float _length;
-    float _width;
+    static float _default_size;
+    float        _length;
+    float        _width;
 };
+
+std::ostream& operator<<(std::ostream& stream, const Rectangle& rect);

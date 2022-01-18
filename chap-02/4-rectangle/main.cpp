@@ -13,12 +13,12 @@ int main()
     Rectangle square(2.5f);
     std::cout << "{ L: " << square.get_length() << ", W: " << square.get_width() << " }" << std::endl;
 
-    Rectangle::_default_size = 3.f;
+    Rectangle::set_default_size(3.f);
 
     Rectangle s1;
     Rectangle s2;
 
-    Rectangle::_default_size = 5.f;
+    Rectangle::set_default_size(5.f);
 
     Rectangle s3;
     Rectangle s4;

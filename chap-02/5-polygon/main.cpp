@@ -2,7 +2,7 @@
 
 int main()
 {
-    // Polygon polygon;
+    Polygon polygon;
 
     // polygon.add_vertex(2, 3);
     // polygon.add_vertex(4, 5);
