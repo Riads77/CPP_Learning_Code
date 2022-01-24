@@ -1,32 +1,20 @@
 #include <iostream>
-
-struct Test
-{
-    Test(int v)
-        : value { v }
-    {
-        std::cout << "Constructor was called with " << v << "." << std::endl;
-    }
-
-    Test(const Test& other)
-        : value { other.value }
-    {
-        std::cout << "Copy constructor was called." << std::endl;
-    }
-
-    int value = 0;
-};
-
-Test create_test(int value)
-{
-    Test result { value };
-    return result;
-}
+#include <string>
+#include <utility>
+#include <vector>
 
 int main()
 {
-    Test test = create_test(3);
-    std::cout << test.value << std::endl;
+    std::vector<std::string> many_strings;
+
+    std::string value = "will I move?";
+
+    std::cout << "value is '" << value << "'" << std::endl;
+
+    many_strings.emplace_back(std::move(value));
+
+    std::cout << "value is '" << value << "'" << std::endl;
+    std::cout << "many_strings[0] is '" << many_strings[0] << "'" << std::endl;
 
     return 0;
 }
