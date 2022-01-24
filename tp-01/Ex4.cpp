@@ -31,7 +31,21 @@ void display_lower_occ(const std::vector<unsigned int>& counts)
 int main()
 {
     using namespace std;
-    string s;
-    cin >> s;
-    display_lower_occ(count_lower(s));
+    string         s;
+    vector<string> concats;
+    while (true)
+    {
+        cin >> s;
+        if (s == "QUIT")
+        {
+            return 0;
+        }
+        display_lower_occ(count_lower(s));
+        concats.emplace_back(s);
+        for (auto v : concats)
+        {
+            cout << v;
+        }
+        cout << endl;
+    }
 }
