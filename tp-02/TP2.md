@@ -32,8 +32,11 @@ int main() {
   return 0;
 }
 ```
+A la fin, les 2 valeurs affichées sont 17 et 17.
 
 2. Que se passe si on enlève la ligne marquée "initialisation" ?
+
+Si on enlève la ligne marquée initialisation, le programme ne compile pas et ne comprend pas les appels à global_sum dans le main.
 
 ## Exercice 2 - Construction et destruction
 
