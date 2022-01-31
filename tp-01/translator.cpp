@@ -12,7 +12,7 @@ vector<pair<string, string>> open_dictionary(const string& path);
 void                         save_dictionary(const string path, const vector<pair<string, string>>& dict);
 void translate(const vector<string>& sentence, const vector<pair<string, string>>& dict);
 
-int main(int argc, char** argv)
+int main(int argc, char* argv[])
 {
     string         dict_path, word, translation;
     vector<string> sentence;

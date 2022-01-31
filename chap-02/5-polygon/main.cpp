@@ -1,5 +1,5 @@
 #include "Polygon.h"
-#include "realloc.h"
+//#include "realloc.h"
 
 #include <iostream>
 
@@ -19,10 +19,10 @@ int main()
 
     std::cout << "(" << vertex.first << "," << vertex.second << ")" << std::endl; //-> (4, 5)
 
-    for (auto i = 0; i < 200; ++i)
-    {
-        polygon.add_vertex(i, i * 2);
-    }
+    // for (auto i = 0; i < 200; ++i)
+    // {
+    //     polygon.add_vertex(i, i * 2);
+    // }
 
     std::cout << "(" << vertex.first << "," << vertex.second << ")" << std::endl; //-> ???
 
